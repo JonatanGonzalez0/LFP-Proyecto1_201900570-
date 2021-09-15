@@ -1,5 +1,5 @@
 from tkinter.constants import FALSE
-from Token import Token
+from SRC.Token import Token
 import re
 class Analizador:
     lexema = ''
