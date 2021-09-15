@@ -280,9 +280,9 @@ def analizarImagen():
                     img.put(celTemp.colorHex,(i,j))
     existeImagen = True  
     Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
-    img.write( Carpeta_Raiz+'\originales\\'+imagenEncontrada.titulo+'.png', format='png')
+    img.write( Carpeta_Raiz+'\IMAGENES\originales\\'+imagenEncontrada.titulo+'.png', format='png')
     titulo = imagenEncontrada.titulo.upper()
-    rutaHtml = Carpeta_Raiz + f'\\reporteAnalisis\\analisis{imagenEncontrada.titulo}.html'
+    rutaHtml = Carpeta_Raiz + f'\\REPORTES\\reporteAnalisis\\analisis{imagenEncontrada.titulo}.html'
     archivo = open(rutaHtml,"w")
     archivo.write("<html><head><title> Analisis </title></head>")
     archivo.write("<body style=\"background-color:  #e5e7e9  ;font-family:courier;font-size:20px;font-style:courier;\" ><br> ")
@@ -303,43 +303,43 @@ def analizarImagen():
     
     Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
     
-    rutaOriginal = Carpeta_Raiz+'\originales\\'+imagenEncontrada.titulo+'.png'
+    rutaOriginal = Carpeta_Raiz+'\\IMAGENES\\originales\\'+imagenEncontrada.titulo+'.png'
     
     archivo.write("<br><h2 align=\"center\"> Original </h2>") 
     archivo.write(f'<div align="center"><img  src=\"{rutaOriginal}\"></div>')
     
     
     if "mirrorx" in imagenEncontrada.filtros:
-        rutaImagen = Carpeta_Raiz+"\originales\\"+imagenEncontrada.titulo+'.png'
+        rutaImagen = Carpeta_Raiz+"\\IMAGENES\\originales\\"+imagenEncontrada.titulo+'.png'
         im = Image.open(rutaImagen)
         im_mirror = ImageOps.mirror(im)
-        im_mirror.save(Carpeta_Raiz+'\mirrorX\\'+imagenEncontrada.titulo+'.png', quality=95)
+        im_mirror.save(Carpeta_Raiz+'\\IMAGENES\\mirrorX\\'+imagenEncontrada.titulo+'.png', quality=95)
         
-        rutaMirrorX = Carpeta_Raiz+'\mirrorX\\'+imagenEncontrada.titulo+'.png'
+        rutaMirrorX = Carpeta_Raiz+'\\IMAGENES\\mirrorX\\'+imagenEncontrada.titulo+'.png'
         
         archivo.write("<br><h2 align=\"center\"> MIRROR X </h2>") 
         archivo.write(f'<div align="center"><img  src=\"{rutaMirrorX}\"></div>')
         
     if "mirrory" in imagenEncontrada.filtros:
-        rutaImagen = Carpeta_Raiz+"\originales\\"+imagenEncontrada.titulo+'.png'
+        rutaImagen = Carpeta_Raiz+"\\IMAGENES\\originales\\"+imagenEncontrada.titulo+'.png'
         im = Image.open(rutaImagen)
         im_flip = ImageOps.flip(im)
-        im_flip.save(Carpeta_Raiz+'\mirrorY\\'+imagenEncontrada.titulo+'.png', quality=95)
+        im_flip.save(Carpeta_Raiz+'\\IMAGENES\\mirrorY\\'+imagenEncontrada.titulo+'.png', quality=95)
         
-        rutaMirrorY = Carpeta_Raiz+'\mirrorY\\'+imagenEncontrada.titulo+'.png'
+        rutaMirrorY = Carpeta_Raiz+'\\IMAGENES\\mirrorY\\'+imagenEncontrada.titulo+'.png'
         
         archivo.write("<br><h2 align=\"center\"> MIRROR Y </h2>") 
         archivo.write(f'<div align="center"><img  src=\"{rutaMirrorY}\"></div>')
         
     if "doublemirror" in imagenEncontrada.filtros:
-        rutaImagen = Carpeta_Raiz+"\originales\\"+imagenEncontrada.titulo+'.png'
+        rutaImagen = Carpeta_Raiz+"\\IMAGENES\\originales\\"+imagenEncontrada.titulo+'.png'
         
         im = Image.open(rutaImagen)
         im_mirror = ImageOps.mirror(im)
         im_double = ImageOps.flip(im_mirror)
-        im_double.save(Carpeta_Raiz+'\doubleMirror\\'+imagenEncontrada.titulo+'.png', quality=95)
+        im_double.save(Carpeta_Raiz+'\\IMAGENES\\doubleMirror\\'+imagenEncontrada.titulo+'.png', quality=95)
         
-        rutaMirrorDouble = Carpeta_Raiz+'\doubleMirror\\'+imagenEncontrada.titulo+'.png'
+        rutaMirrorDouble = Carpeta_Raiz+'\\IMAGENES\\doubleMirror\\'+imagenEncontrada.titulo+'.png'
         
         archivo.write("<br><h2 align=\"center\"> DOUBLE MIRROR </h2>") 
         archivo.write(f'<div align="center"><img  src=\"{rutaMirrorDouble}\"></div>')
@@ -390,14 +390,14 @@ def Original():
                     img.put(celTemp.colorHex,(i,j))
     existeImagen = True  
     Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
-    img.write( Carpeta_Raiz+'\originales\\'+imagenEncontrada.titulo+'.png', format='png')
+    img.write( Carpeta_Raiz+'\\IMAGENES\\originales\\'+imagenEncontrada.titulo+'.png', format='png')
 
     messagebox.showinfo("CORRECTO",f"Se grafico la imagen normal de " + imagenEncontrada.titulo)   
     mainloop()
     
 def reporteTokensHTML():
     Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
-    rutaHtml = Carpeta_Raiz + "\\reporteTokens\\reporte_Tokens.html"
+    rutaHtml = Carpeta_Raiz + "\\REPORTES\\reporteTokens\\reporte_Tokens.html"
     archivo = open(rutaHtml,"w")
     archivo.write("<html><head><title> REPORTE DE TOKENS </title></head>")
     archivo.write("<body style=\"background-color:  #e5e7e9  ;font-family:courier;font-size:20px;font-style:courier;\" ><br> ")
@@ -421,7 +421,7 @@ def reporteErroresHTML():
         messagebox.showwarning("ATENCION","No hay errores reportados en la entrada")   
     else:
         Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
-        rutaHtml = Carpeta_Raiz + "\\reporteTokens\\reporte_Errores.html"
+        rutaHtml = Carpeta_Raiz + "\\REPORTES\\reporteTokens\\reporte_Errores.html"
         archivo = open(rutaHtml,"w")
         archivo.write("<html><head><title> REPORTE DE ERRORES </title></head>")
         archivo.write("<body style=\"background-color:  #e5e7e9  ;font-family:courier;font-size:20px;font-style:courier;\" ><br> ")
@@ -453,14 +453,14 @@ def mirrorX():
     
     if "mirrorx"  in imagenEncontrada.filtros:
         Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
-        rutaImagen = Carpeta_Raiz+"\originales\\"+imagenEncontrada.titulo+'.png'
+        rutaImagen = Carpeta_Raiz+"\\IMAGENES\\originales\\"+imagenEncontrada.titulo+'.png'
         canvas.delete("all")
 
         im = Image.open(rutaImagen)
         im_mirror = ImageOps.mirror(im)
-        im_mirror.save(Carpeta_Raiz+'\mirrorX\\'+imagenEncontrada.titulo+'.png', quality=95)
+        im_mirror.save(Carpeta_Raiz+'\\IMAGENES\\mirrorX\\'+imagenEncontrada.titulo+'.png', quality=95)
         
-        imgMirrorXOpen = Image.open(Carpeta_Raiz+'\mirrorX\\'+imagenEncontrada.titulo+'.png')
+        imgMirrorXOpen = Image.open(Carpeta_Raiz+'\\IMAGENES\\mirrorX\\'+imagenEncontrada.titulo+'.png')
         python_image = ImageTk.PhotoImage(imgMirrorXOpen)
 
         canvas.create_image(0,0, image=python_image, anchor=NW)
@@ -483,15 +483,15 @@ def mirrorY():
     
     if "mirrory"  in imagenEncontrada.filtros:
         Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
-        rutaImagen = Carpeta_Raiz+"\originales\\"+imagenEncontrada.titulo+'.png'
+        rutaImagen = Carpeta_Raiz+"\\IMAGENES\\originales\\"+imagenEncontrada.titulo+'.png'
         canvas.delete("all")
 
         im = Image.open(rutaImagen)
         im_flip = ImageOps.flip(im)
-        im_flip.save(Carpeta_Raiz+'\mirrorY\\'+imagenEncontrada.titulo+'.png', quality=95)
+        im_flip.save(Carpeta_Raiz+'\\IMAGENES\\mirrorY\\'+imagenEncontrada.titulo+'.png', quality=95)
 
         
-        imgMirrorYOpen = Image.open(Carpeta_Raiz+'\mirrorY\\'+imagenEncontrada.titulo+'.png')
+        imgMirrorYOpen = Image.open(Carpeta_Raiz+'\\IMAGENES\\mirrorY\\'+imagenEncontrada.titulo+'.png')
         python_image = ImageTk.PhotoImage(imgMirrorYOpen)
 
         canvas.create_image(0,0, image=python_image, anchor=NW)
@@ -514,7 +514,7 @@ def doubleMirror():
     
     if "doublemirror"  in imagenEncontrada.filtros:
         Carpeta_Raiz = os.path.dirname(os.path.abspath(__file__))
-        rutaImagen = Carpeta_Raiz+"\originales\\"+imagenEncontrada.titulo+'.png'
+        rutaImagen = Carpeta_Raiz+"\\IMAGENES\\originales\\"+imagenEncontrada.titulo+'.png'
         canvas.delete("all")
 
         im = Image.open(rutaImagen)
@@ -522,9 +522,9 @@ def doubleMirror():
         im_mirrorx = ImageOps.mirror(im)
         im_doubleMirror = ImageOps.flip(im_mirrorx)
         
-        im_doubleMirror.save(Carpeta_Raiz+'\doubleMirror\\'+imagenEncontrada.titulo+'.png', quality=95)
+        im_doubleMirror.save(Carpeta_Raiz+'\\IMAGENES\\doubleMirror\\'+imagenEncontrada.titulo+'.png', quality=95)
         
-        imgMirrorDouble = Image.open(Carpeta_Raiz+'\doubleMirror\\'+imagenEncontrada.titulo+'.png')
+        imgMirrorDouble = Image.open(Carpeta_Raiz+'\\IMAGENES\\doubleMirror\\'+imagenEncontrada.titulo+'.png')
         python_image = ImageTk.PhotoImage(imgMirrorDouble)
 
         canvas.create_image(0,0, image=python_image, anchor=NW)
