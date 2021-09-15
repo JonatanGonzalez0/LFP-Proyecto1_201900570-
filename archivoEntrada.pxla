@@ -1,4 +1,4 @@
-TIT2ULO="Pokeball";
+TITULO="Pokeball";
         ANCHO=300;
         ALTO=300;
         FILAS=12;
