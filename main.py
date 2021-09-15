@@ -19,11 +19,8 @@ canvas = Canvas()
 
 
 def carga_Menu():
-    
     ancho_ventana = 1600
     alto_ventana = 900
-
-
     #Centrar app dependiendo del monitor
     x_ventana = app.winfo_screenwidth() // 2 - ancho_ventana // 2
     y_ventana = app.winfo_screenheight() // 2 - alto_ventana // 2
@@ -38,7 +35,6 @@ def carga_Menu():
     etiquetaM.pack(padx=30,pady=5)
     
     #botones de las diferentes opciones
-    
     filemenu.add_command(label="Cargar Archivo", command=cargarArchivo)
     filemenu.add_command(label="Reporte Tokens HTML", command=reporteTokensHTML)
     filemenu.add_command(label="Reporte Errores HTML", command=reporteErroresHTML)
