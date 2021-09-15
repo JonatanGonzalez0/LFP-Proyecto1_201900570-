@@ -1,12 +1,12 @@
-from Token import Token
+from SRC.Token import Token
 import tkinter as tk
 from tkinter import filedialog,messagebox
 from tkinter import *
 from tkinter import ttk
 import os,webbrowser
-from celda import celda
-from imagen import imagen
-from Analizador import Analizador
+from SRC.celda import celda
+from SRC.imagen import imagen
+from SRC.Analizador import Analizador
 from PIL import Image, ImageOps,ImageTk
 
 entradaPrincipal = ''
